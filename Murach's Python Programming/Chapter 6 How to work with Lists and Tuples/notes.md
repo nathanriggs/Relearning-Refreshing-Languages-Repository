@@ -1,0 +1,58 @@
+# Murach's Python Programming -- Chapter 6
+
+- okay, back to actual useful stuff: arrays, or lists and tuples as the kids call them
+- a list especially is basically an array, except it is mutable when passed as a paramater--which is annoying
+- you can reference list elements via positive numbers, like usual, or negative ones, which start at the end of the list
+- creating a list
+  - list = []
+  - list = ["communism","will",1,"win"]
+  - list = [0] * 5 (create a list filled with 5 zeroes)
+- beyond the interesting negative element referencing scheme, lists are accessed pretty much exactly like an array in most other languages
+  - list[0] = "yay"
+  - temp = list[0]
+- in Python, they also call elements "items" because why the hell not
+- lists have methods, of course. A few popular ones are:
+  - list.append(item) -- append item to end of list
+  - list.insert(index, item) -- inserts an item at the given index
+  - list.remove(item) -- removes the first instance found of the item in a list. Note that this is a value like "fuck" or 3.14
+  - list.pop([index]) -- with no argument, it simply pops the last element from the array like a stack. Otherwise, it removes the item at the given index
+  - list.count(item) -- returns the number of times an item appears in a list
+  - list.reverse() -- reverses the order of the list
+  - list.sort([key=function]) -- sorts the list. The optional named key argument is a function called before each item is sorted.
+- the len() function is a global function that gets the length of a list. Why it isn't a method of lists is beyond me. At this point, I'm beginning to see that Python is a weirdly inconsistent language, perhaps because it transitioned from an imperative language to an OOP language not too long ago--there are still a lot of kinks maybe?
+- there's also the sorted(list [,key=function]) function, which returns a new list that consists of the elements of the original list, except it's sorted. This is one way to pass a list in an immutable way, though it's 1) a waste and 2) interferes in the list order.
+- the min(list) function returns the minimum value in a list, while the max(list) returns the maximum value in a list.
+- In the random module, there are two important functions for working with lists: choice(list) and shuffle(list)
+  - obviously, random.shuffle(list) literally shuffles the array like a deck of cards
+  - random.choice(list) returns a randomly selected element from the array
+- in the copy module, there's the copy.deepcopy() function that returns a deep copy (a real, independent copy) of the list. You need to use this if you want to copy a list and change it without changing the original list
+- if you just say list2 = list1, you're making a shallow copy--it's more like a pointer. list2 simply refers to list1, rather than creating a new copy
+- lists can be concatenated with a simple + operator, like list1 + list2
+- to slice a list, you can use a colon within the brackets to define the starting and ending index, as such
+  - list1[3:6]
+  - this can also use a step argument: list:[0:10:2] would return every even number item between the two indices, for instance
+- you can traverse a list in multiple ways with a for loop or a while loop
+  - for item in items:
+    - pass
+  - while i < len(items):
+    - print(i)
+- technically, all data types are objects, which makes some design choices even less sensical
+- strings, integers, floats and bools are immutable: when you pass them as a parameter, the original value remains unchanged. Again, this is not the same for lists for some damned reason
+- this seems to go against the "no globals" ethos of contemporary programming, but so it goes
+- lists are the only mutable type because fuck it
+- surprise! Multi-dimensional lists are just lists inside of lists, like arrays. Remarkable.
+- for instance
+  - cows = [["Mabel, "Goron"],
+  - ​             ["Jorge, "Jimmy"]]
+  - and of course these are accessed like usual: cows\[0\]\[1\]
+  - 
+- Okay, on to Tuples! These work much like lists, except they are defined by parentheses and the individual values cannot be changed
+- Tuples, since they can't be changed in the first place, are immutable, unlike lists
+- One useful function of tuples--and the only useful one I can see so far--is packing and unpacking variables.
+- tuples are defined with parentheses, but are accessed with brackets like arrays/lists
+- to unpack a tuple
+  - tuple = (1,2,3)
+  - a,b,c = tuple
+  - this can also be done by returning a tuple from a function
+- and that's about it about tuples. Wonderful.
+
